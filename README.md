@@ -6,14 +6,14 @@
 
 Bienvenue dans le dépôt du backend AutoCash. Ce service est le cœur de notre application, gérant la persistance des données (inventaire, vendeurs, historique).
 
-## 🚀 Vision & Philosophie du Projet
+##  Vision & Philosophie du Projet
 
 Notre objectif est la **robustesse** et l'**évolutivité**. Nous avons choisi une architecture classique mais puissante pour garantir la performance des API mobiles.
 
   * **Philosophie Clean Code :** Séparation stricte des responsabilités (Controller, Service, Repository). Le service est la seule source de vérité pour la logique métier.
   * **Performance Mobile :** Optimisation des requêtes JPA et utilisation de DTOs pour minimiser la charge réseau.
 
-## 🛠️ Stack Technique (Le Noyau)
+##  Stack Technique (Le Noyau)
 
 | Technologie | Rôle Architectural | Note |
 | :--- | :--- | :--- |
@@ -63,7 +63,7 @@ Le serveur écoute sur `http://localhost:8000`.
 
 -----
 
-## 2\. 🗄️ Architecture de Persistance et Modélisation
+## 2\. Architecture de Persistance et Modélisation
 
 ### Le Modèle Relationnel Clé
 
@@ -99,7 +99,7 @@ Pour accéder à ces images depuis l'émulateur ou l'appareil physique :
 
 -----
 
-## 4\. 🔗 Débogage et Dépannage Rapide
+## 4\. Débogage et Dépannage Rapide
 
 | Problème | Cause Probable | Solution |
 | :--- | :--- | :--- |
