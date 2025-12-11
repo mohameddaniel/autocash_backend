@@ -105,4 +105,4 @@ Pour accéder à ces images depuis l'émulateur ou l'appareil physique :
 | :--- | :--- | :--- |
 | `Table 'X' doesn't exist` (au démarrage) | Hibernate essaie de supprimer des tables qui n'existent pas encore. | **Ignorer le `WARN`.** La table sera créée juste après. |
 | `Could not commit JPA transaction` | Violation de `NOT NULL` ou échec d'une contrainte de clé étrangère. | Vérifiez que tous les IDs dans votre DTO sont valides et que les champs obligatoires sont remplis. |
-| L'application mobile ne voit pas les images | Problème de réseau ou de sécurité Android. | 1. **Vérifiez `HOST_NAME`** (doit être `http://IP_LOCALE:8000`). 2. **Vérifiez `AndroidManifest.xml`** (`usesCleartextTraffic="true"`). |
+
