@@ -71,7 +71,6 @@ La modélisation est conçue pour gérer le carnet d'adresses et l'inventaire sa
 
   * **`Car` :** Entité centrale. Contient des clés étrangères vers `Brand`, `Model`, et `Seller`.
       * **Référence Automatique :** Le champ `ref` (7 chiffres) est généré automatiquement via `@PrePersist`.
-      * **Statut par Défaut :** Le champ `status` a une valeur par défaut prédéfinie.
   * **`Seller` / `SellerName` :** Relation **One-to-Many** permettant à plusieurs enregistrements de détails de vendeur d'être liés au même nom commercial/vendeur principal.
 
 ### Points d'Attention sur les Entités
