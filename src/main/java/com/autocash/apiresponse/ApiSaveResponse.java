@@ -1,13 +1,13 @@
 package com.autocash.apiresponse;
 
-import java.util.Optional;
-
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Data
-public class ApiResponse {
+public class ApiSaveResponse {
+	
 	private final boolean success;
-	private  final String message;
+	private final String message;
+	private final Long id;
 }

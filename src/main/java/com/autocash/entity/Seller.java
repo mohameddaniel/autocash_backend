@@ -1,28 +1,32 @@
 package com.autocash.entity;
 
-import com.autocash.enums.SellerType;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
-public class User {
+@ToString(exclude = {"cars", "sellerName"})
+public class Seller {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@NotBlank
-	private String sellerName;
+	private Long id;	
 	
 	@NotBlank(message = "Le téléphone est obligatoire")
 	private String phone;
@@ -37,11 +41,17 @@ public class User {
 	@NotBlank
 	private String address;
 	
-	@Enumerated(EnumType.STRING)
-	private SellerType sellerType;
+	@NotBlank
+	private String  sellerType;
 	
+	@NotBlank
+	private String city;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_city")
-	private City city;
+	@OneToMany(mappedBy = "seller",cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonManagedReference
+	private List<Car> cars = new  ArrayList<Car>();
+	
+	@ManyToOne 
+    @JoinColumn(name = "name_id", nullable = false)
+    private SellerName sellerName;
 }

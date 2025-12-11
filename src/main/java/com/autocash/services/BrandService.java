@@ -2,6 +2,7 @@ package com.autocash.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -34,14 +35,22 @@ public class BrandService {
 	
 	
 	@Transactional(readOnly = true)
-	public List<Brand>  getAllBrand(){
+	public List<BrandDto>  getAllBrand(){
 		
-		return brandRepo.findAll();
+		return brandRepo.findAll()
+				.stream()
+				.map(brand -> new BrandDto(brand.getBrand_id(),brand.getBrand_name()))
+				.collect(Collectors.toList());
 	}
 	
 	
 	@Transactional
 	public void addBrand(Brand brand) {
 		brandRepo.save(brand);
+	}
+	
+	@Transactional(readOnly = true)
+	public boolean brandExist(Long id) {
+		return brandRepo.existsById(id);
 	}
 }
